@@ -1,0 +1,9 @@
+https://blog.csdn.net/FX677588/article/details/53301740
+
+https://www.mathworks.com/matlabcentral/fileexchange/31412-learning-based-digital-matting?focused=5188648&tab=function
+http://www.aiuxian.com/article/p-1153890.html
+https://blog.csdn.net/guvcolie/article/details/77131508
+https://blog.csdn.net/d_nel/article/details/44133197
+https://github.com/MarcoForte/closed-form-matting/blob/master/closed_form_matting.py
+http://www.ilovematlab.cn/thread-446974-1-1.html
+https://stackoverflow.com/questions/43523306/big-o-of-matlab-built-in-functions
