@@ -14,3 +14,4 @@
 
 
 书P738说，Gaussian function is smooth in both the spatial and frequency domains, thus less likely to introduce artifacts (ringing) not present in the original image.这么说如果去雾之后图像有artifacts是不是就意味着spatial and frequency domains都被某种操作sharp了？
+书P745说，2-D Gaussian function is separable into a product of two 1-D Gaussians....formulated as 1-D convolutions that operate on the rows of the image one ....the result.这是不是就为guided filter里面两个van Herk filter连用提供了理论依据？
