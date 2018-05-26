@@ -24,7 +24,7 @@ tic;
 K = round(height*width*0.001);
 X = darkchannel(:);
 I_gray = rgb2gray(I); I_gray = I_gray(:);
-[~,corrsepond_index] = sort(X,'descend');                                   % http://www.ilovematlab.cn/thread-446974-1-1.html
+[~,corrsepond_index] = sort(X,'descend');
 A = max(I_gray(corrsepond_index));
 A = double(A);
 toc;
