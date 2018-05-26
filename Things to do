@@ -1,0 +1,8 @@
+原理性：
+1. 搞懂Van Herk算法是怎么实现的
+2. 搞懂快速排序算法是怎么实现的
+3. 搞懂为什么要做normalized才能show image
+3. 搞懂guided filter / soft matting是做什么的，为什么经过他之后图像就可以变好？
+
+实验讲演相关：
+1. 截图各个部分不同version的时间比较

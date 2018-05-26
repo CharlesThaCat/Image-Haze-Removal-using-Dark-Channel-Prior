@@ -8,7 +8,7 @@
 		取每一个patch的RGB分量；在RGB分量中各自求最小值；然后再求三个最小值的最小值。相当于对每1个patch都要做3个取patch的截取矩阵运算，3个二维的最小值运算，1个一维的最小值运算。
 		运算的复杂度来源于：1.for循环嵌套O(N^2)的复杂度对于大型的图像来说是heavy load，而且for循环嵌套内的运算量也非常大。  2.二维的最小值运算的运算量会随着patch的大小而变化，如果patch的大小太大的话，也是heavy load。
 	van Herk的算法
-		直接把整个图像的RGB分量塞进算法中，算法会先对行然后再对列进行1维排序，最终的local minimum结果和用for循环嵌套每个patch内求min的结果是一样的；对于每个输出pixel，取RGB local minimum结果中的最小值。
+		直接把整个图像的RGB分量塞进算法中，算法会先对行然后再对列进行1维排序(paper里面说可以这样做的)，最终的local minimum结果和用for循环嵌套每个patch内求min的结果是一样的；对于每个输出pixel，取RGB local minimum结果中的最小值。
 		运算复杂度的减轻来源于：1.van Herk算法求min的运算量不会随着patch的大小而改变  2.for循环嵌套中的每个循环只是用来对每个pixel操作，只有1个一维的最小值运算，并不涉及到传统方法中截取矩阵与二维最小值运算。
 
 

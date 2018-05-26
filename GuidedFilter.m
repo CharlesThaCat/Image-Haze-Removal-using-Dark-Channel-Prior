@@ -11,7 +11,7 @@ function [q] = GuidedFilter(p,I,r,epsilon)
 [height,width] = size(p);
 q = zeros(height,width);
 
-mean_I_R = imboxfilt(I(:, :, 1), r);                                        % box filter用论文里面的moving sum方法会不会更快？而且效果更好？
+mean_I_R = imboxfilt(I(:, :, 1), r);
 mean_I_G = imboxfilt(I(:, :, 2), r);
 mean_I_B = imboxfilt(I(:, :, 3), r);
 

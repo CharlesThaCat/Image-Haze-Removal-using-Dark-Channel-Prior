@@ -1,6 +1,6 @@
 % main function of this project
 clear; clc;
-imagename = '1437406655_9548bac8b6_z.jpg';
+imagename = 'beijing2.jpg';
 I = imread(imagename);
 [height,width,~] = size(I);
 figure;
@@ -11,7 +11,7 @@ patch_size = 10;
 
 % dark channel
 tic;
-[darkchannel] = DarkChannel(I,height,width,patch_size);                     % ?????????min????van??????????????????��??
+[darkchannel] = DarkChannel(I,height,width,patch_size);
 toc;
 figure;
 imshow(uint8(darkchannel)); title('dark channel');
@@ -22,24 +22,12 @@ tic;
 toc;
 
 % transmission t_tilde(x)
-%%%%%%%%%%%%%%%%%%%%%% verison 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% tic;
-% omega = 0.95;
-% [transmission] = Transmission(I,height,width,patch_size,A,omega);           % ?????????min????van??????????????????��??
-% toc;
-%%%%%%%%%%%%%%%%%%%%%% verison 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 tic;
 omega = 0.95*255;
-[transmission] = Transmission_Fianl(omega,darkchannel,A);
+[transmission] = Transmission(omega,darkchannel,A);
 toc;
 figure;
 imshow(uint8(transmission)); title('transmission before soft matting');
-%%%%%%%%%%%%%%%%%%%%%% verison 3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% tic;
-% omega = 0.95;
-% transmission = 255 - darkchannel;
-% imshow(uint8(transmission)); title('transmission before soft matting');
-% toc;
 
 % show the haze free image before soft matting
 transmission_normalized = transmission/255;
@@ -57,7 +45,7 @@ imshow(uint8(result1)); title('haze free image without soft matting');
 % guided filter
 tic;
 epsilon = 10^-6;
-r = 81;
+r = 81; % radius of local window, determined interactively
 [filtered_transmission] = GuidedFilter(transmission_normalized,double(I)/255,r,epsilon);
 figure;
 imshow(filtered_transmission,[]); title('guided filtered transmission');
