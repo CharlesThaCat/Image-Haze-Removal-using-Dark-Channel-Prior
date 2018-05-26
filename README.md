@@ -10,15 +10,19 @@ Project Timeline
 2018/5/9
 -
 * Determine the topic of this project
+
 2018/5/14
 -
 * Finish reading the first and second paper in "Relative Papers" section.
+
 2018/5/18
 -
 * Finish the first version of the whole program.
+
 2018/5/23
 -
 * Improve the performances in "DarkChannel.m" and "AtmosphericLight.m".
+
 2018/5/26
 -
 
