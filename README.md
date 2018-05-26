@@ -17,7 +17,11 @@ Project Timeline
 
 2018/5/18
 -
-* Finish the first version of the whole program.
+* Finish the first version of the whole program, including:<br>
+Dark channel computation<br>
+Atmospheric light estimation<br>
+Transmission estimation<br>
+Guided filtering<br>
 
 2018/5/23
 -
