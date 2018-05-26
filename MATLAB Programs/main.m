@@ -1,6 +1,6 @@
 % main function of this project
 clear; clc;
-imagename = 'beijing2.jpg';
+imagename = '3236898173_71c252a92d_o.jpg';
 I = imread(imagename);
 [height,width,~] = size(I);
 figure;
@@ -42,7 +42,7 @@ imshow(uint8(result1)); title('haze free image without soft matting');
 % soft matting(very slow when dealing with large image)
 % [ filtered_transmission ] = matting( I1, transmission );
 
-% guided filter
+% guided filter transmission refinement
 tic;
 epsilon = 10^-6;
 r = 81; % radius of local window, determined interactively

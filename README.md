@@ -31,6 +31,7 @@ Guided filtering<br>
 2018/5/26
 -
 * Finish reading the fourth paper in in "Relative Papers" section.
+* Improve the performance in "MinFilt.m" and VanHerkMin.m".
 * Classify the files of this project into different documents.
 
 Relative Papers
@@ -44,3 +45,4 @@ Other Supporting Materials
 =
 * FRIDA (Foggy Road Image DAtabase)
 * *An Adventure of Sorts–Behind the Scenes of a MATLAB Upgrade*, Bill McKeeman, MathWorks and Loren Shure, MathWorks
+* About the image data type in MATLAB and their conversions: http://www.cnblogs.com/Allen-rg/p/6236009.html (website in Chinese)

@@ -30,20 +30,4 @@ end
 
 darkchannel = double(darkchannel);
 
-%%%%%%%%%%%%%%%%%%%%%% verison 3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% WARNING: This version does not work, since "min" in MATLAB just return the minimum of the whole array, but not local minima of each patch
-% darkchannel_r = min(I(:,:,1));
-% darkchannel_g = min(I(:,:,2));
-% darkchannel_b = min(I(:,:,3));
-% darkchannel_r(height,width)=0;
-% darkchannel_g(height,width)=0;
-% darkchannel_b(height,width)=0;
-% for index1 = 1:height
-%     for index2 = 1:width
-%         darkchannel(index1,index2) = min([darkchannel_r(index1,index2) darkchannel_g(index1,index2) darkchannel_b(index1,index2)]);
-%     end
-% end
-
-
 end
-
