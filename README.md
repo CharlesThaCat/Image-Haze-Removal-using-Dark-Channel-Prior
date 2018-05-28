@@ -34,6 +34,11 @@ Guided filtering<br>
 * Improve the performance in "MinFilt.m" and VanHerkMin.m".
 * Classify the files of this project into different documents.
 
+2018/5/28
+-
+* Add "RMSE.m" and "main_score.m" to create a method to evaluate the quality of dehazing algorithm in different parameters or methods
+* Add a new method to calculate atmospheric light A based on image entropy.
+
 Relative Papers
 =
 * *Single Image Haze Removal Using Dark Channel Prior*, Kaiming He, Jian Sun, and Xiaoou Tang, Fellow, IEEE
