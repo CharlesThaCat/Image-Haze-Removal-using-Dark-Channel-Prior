@@ -6,10 +6,10 @@
 
 参数调整性：
 1. 改变求暗通道时的patch size值
-2. 改变求atmospheric light时的top p%值；写entropy方法（记得用和求暗通道时不一样的patch大小）
+(SOLVED)2. 改变求atmospheric light时的top p%值；写entropy方法（记得用和求暗通道时不一样的patch大小）
 (SOLVED)3. FRIDA可以拿到真实的atmospheric light数值吗？
 4. refine transmission map时加一个cross bilateral filter 方法
-5. 量化dehaze的结果：RSME / Qe
+(SOLVED)5. 量化dehaze的结果：RSME / Qe
 
 实验讲演相关：
 1. 截图各个部分不同version的时间比较，做成柱状图

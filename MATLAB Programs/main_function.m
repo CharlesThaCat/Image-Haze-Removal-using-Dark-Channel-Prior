@@ -1,6 +1,7 @@
-% main function of this project
+% main function for demonstrating the function of this project
+% all resulting figures from each step will be shown
 clear; clc;
-imagename = '3236898173_71c252a92d_o.jpg';
+imagename = 'C:\Users\Charles Lin\Documents\Git--VSCode--GitHub\Image Haze Removal using Dark Channel Prior\frida\M080-000002.png';
 I = imread(imagename);
 [height,width,~] = size(I);
 figure;
@@ -31,6 +32,7 @@ imshow(uint8(transmission)); title('transmission before soft matting');
 
 % show the haze free image before soft matting
 transmission_normalized = transmission/255;
+% [transmission_normalized,~] = mapminmax(transmission,0,1);
 result1 = zeros(height,width,3);
 I1 = double(I);
 result1(:,:,1) = (I1(:,:,1) - (1-transmission_normalized)*A)./transmission_normalized;
