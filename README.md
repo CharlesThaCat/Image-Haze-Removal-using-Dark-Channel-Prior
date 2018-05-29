@@ -39,6 +39,10 @@ Guided filtering<br>
 * Add "RMSE.m" and "main_score.m" to create a method to evaluate the quality of dehazing algorithm in different parameters or methods
 * Add a new method to calculate atmospheric light A based on image entropy.
 
+2018/5/29
+-
+* Using "RMSE.m" and "main_score.m" to evaluate the performances (time consumption & RMSE score) of different parameter settings.
+
 Relative Papers
 =
 * *Single Image Haze Removal Using Dark Channel Prior*, Kaiming He, Jian Sun, and Xiaoou Tang, Fellow, IEEE
