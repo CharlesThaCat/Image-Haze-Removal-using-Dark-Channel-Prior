@@ -8,7 +8,7 @@ figure;
 imshow(uint8(I)); title('original image');
 
 % patch size initialization
-patch_size = 10;
+patch_size = 15;
 
 % dark channel
 tic;
@@ -47,7 +47,7 @@ imshow(uint8(result1)); title('haze free image without soft matting');
 % guided filter transmission refinement
 tic;
 epsilon = 10^-6;
-r = 81; % radius of local window, determined interactively
+r = 121; % radius of local window, determined interactively
 [filtered_transmission] = GuidedFilter(transmission_normalized,double(I)/255,r,epsilon);
 figure;
 imshow(filtered_transmission,[]); title('guided filtered transmission');

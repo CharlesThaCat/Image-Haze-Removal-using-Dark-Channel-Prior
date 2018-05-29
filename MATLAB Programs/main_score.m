@@ -1,5 +1,7 @@
 % main function for calculating average RMSE score for dehazing 72 hazy images in FRIDA
-% used to test the qualities of different parameters
+% used to evaluate the qualities of different parameters
+% As written in the fourth paper, the quality of the dehazed image is strongly dependent of the accuracy of transmission map, thus the quality of transmission map can 
+% be used to estimate the quality of overall dehazing.
 % all resulting figures from each step will not be shown
 clear; clc;
 tic;
@@ -19,13 +21,15 @@ while (i<18)
     [height,width,~] = size(I);
 
     % patch size initialization
-    patch_size = 10;
+    patch_size = 7;
 
     % dark channel  
     [darkchannel] = DarkChannel(I,height,width,patch_size);
     
     % atmospheric light A
-    [A] = AtmosphericLight(I,darkchannel,height,width);
+    patch_size1 = 31;
+    [darkchannel1] = DarkChannel(I,height,width,patch_size1);
+    [A] = AtmosphericLight(I,darkchannel1,height,width);
     
     % transmission t_tilde(x)
     omega = 0.95*255;
@@ -47,25 +51,21 @@ while (i<18)
     I = imread(imagename);
     [height,width,~] = size(I);
 
-    % patch size initialization
-    patch_size = 10;
-
     % dark channel
     [darkchannel] = DarkChannel(I,height,width,patch_size);
     
     % atmospheric light A
-    [A] = AtmosphericLight(I,darkchannel,height,width);
+    patch_size1 = 31;
+    [darkchannel1] = DarkChannel(I,height,width,patch_size1);
+    [A] = AtmosphericLight(I,darkchannel1,height,width);
     
     % transmission t_tilde(x)
-    omega = 0.95*255;
     [transmission] = Transmission(omega,darkchannel,A);
     
     % show the haze free image before soft matting
     transmission_normalized = transmission/255;
 
     % guided filter transmission refinement
-    epsilon = 10^-6;
-    r = 81; % radius of local window, determined interactively
     [filtered_transmission] = GuidedFilter(transmission_normalized,double(I)/255,r,epsilon);
     
     [rmse_score] = RMSE(depthmap_normalized,filtered_transmission);
@@ -76,25 +76,21 @@ while (i<18)
     I = imread(imagename);
     [height,width,~] = size(I);
 
-    % patch size initialization
-    patch_size = 10;
-
     % dark channel
     [darkchannel] = DarkChannel(I,height,width,patch_size);
     
     % atmospheric light A
-    [A] = AtmosphericLight(I,darkchannel,height,width);
+    patch_size1 = 31;
+    [darkchannel1] = DarkChannel(I,height,width,patch_size1);
+    [A] = AtmosphericLight(I,darkchannel1,height,width);
     
     % transmission t_tilde(x)
-    omega = 0.95*255;
     [transmission] = Transmission(omega,darkchannel,A);
     
     % show the haze free image before soft matting
     transmission_normalized = transmission/255;
 
     % guided filter transmission refinement
-    epsilon = 10^-6;
-    r = 81; % radius of local window, determined interactively
     [filtered_transmission] = GuidedFilter(transmission_normalized,double(I)/255,r,epsilon);
     
     [rmse_score] = RMSE(depthmap_normalized,filtered_transmission);
@@ -105,25 +101,21 @@ while (i<18)
     I = imread(imagename);
     [height,width,~] = size(I);
 
-    % patch size initialization
-    patch_size = 10;
-
     % dark channel
     [darkchannel] = DarkChannel(I,height,width,patch_size);
     
     % atmospheric light A
-    [A] = AtmosphericLight(I,darkchannel,height,width);
+    patch_size1 = 31;
+    [darkchannel1] = DarkChannel(I,height,width,patch_size1);
+    [A] = AtmosphericLight(I,darkchannel1,height,width);
     
     % transmission t_tilde(x)
-    omega = 0.95*255;
     [transmission] = Transmission(omega,darkchannel,A);
 
     % show the haze free image before soft matting
     transmission_normalized = transmission/255;
 
     % guided filter transmission refinement
-    epsilon = 10^-6;
-    r = 81; % radius of local window, determined interactively
     [filtered_transmission] = GuidedFilter(transmission_normalized,double(I)/255,r,epsilon);
 
     [rmse_score] = RMSE(depthmap_normalized,filtered_transmission);

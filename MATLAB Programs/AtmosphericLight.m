@@ -21,26 +21,26 @@ function [A] = AtmosphericLight(I,darkchannel,height,width)
 % X = darkchannel(:);
 % I_gray = rgb2gray(I); I_gray = I_gray(:);
 % [~,corrsepond_index] = sort(X,'descend');
-% p = 0.1;
+% p = 0.2;
 % index_end = round(p*length(corrsepond_index)/100);
 % corrsepond_index = corrsepond_index(1:index_end,:);
 % A = max(I_gray(corrsepond_index));
 % A = double(A);
 %%%%%%%%%%%%%%%%%%%%%% verison 4 (given sort function in MATLAB) max %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% K = round(height*width*0.001);
-% X = darkchannel(:);
-% I_gray = rgb2gray(I); I_gray = I_gray(:);
-% [~,corrsepond_index] = sort(X,'descend');
-% corrsepond_index = corrsepond_index(1,:);
-% A = max(I_gray(corrsepond_index));
-% A = double(A);
-%%%%%%%%%%%%%%%%%%%%%% verison 5 (given entropy function in MATLAB) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-nhood = true(13);
-I_gray = rgb2gray(I); 
-J = entropyfilt(I_gray,nhood);
-J = J(:);
-[~,corrsepond_index] = sort(J,'descend');
-I_gray = I_gray(:);
+K = round(height*width*0.001);
+X = darkchannel(:);
+I_gray = rgb2gray(I); I_gray = I_gray(:);
+[~,corrsepond_index] = sort(X,'descend');
+corrsepond_index = corrsepond_index(1,:);
 A = max(I_gray(corrsepond_index));
 A = double(A);
+%%%%%%%%%%%%%%%%%%%%%% verison 5 (given entropy function in MATLAB) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% nhood = true(31);
+% I_gray = rgb2gray(I); 
+% J = entropyfilt(I_gray,nhood);
+% J = J(:);
+% [~,corrsepond_index] = sort(J,'descend');
+% I_gray = I_gray(:);
+% A = max(I_gray(corrsepond_index));
+% A = double(A);
 end
