@@ -27,7 +27,7 @@ while (i<18)
     [darkchannel] = DarkChannel(I,height,width,patch_size);
     
     % atmospheric light A
-    patch_size1 = 31;
+    patch_size1 = 81;
     [darkchannel1] = DarkChannel(I,height,width,patch_size1);
     [A] = AtmosphericLight(I,darkchannel1,height,width);
     

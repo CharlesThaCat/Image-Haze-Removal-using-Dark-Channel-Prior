@@ -28,7 +28,7 @@ omega = 0.95*255;
 [transmission] = Transmission(omega,darkchannel,A);
 toc;
 figure;
-imshow(uint8(transmission)); title('transmission before soft matting');
+imshow(uint8(transmission)); title('transmission before refinement');
 
 % show the haze free image before soft matting
 transmission_normalized = transmission/255;
@@ -39,7 +39,7 @@ result1(:,:,1) = (I1(:,:,1) - (1-transmission_normalized)*A)./transmission_norma
 result1(:,:,2) = (I1(:,:,2) - (1-transmission_normalized)*A)./transmission_normalized;
 result1(:,:,3) = (I1(:,:,3) - (1-transmission_normalized)*A)./transmission_normalized;
 figure;
-imshow(uint8(result1)); title('haze free image without soft matting');
+imshow(uint8(result1)); title('haze free image without refinement');
 
 % soft matting(very slow when dealing with large image)
 % [ filtered_transmission ] = matting( I1, transmission );

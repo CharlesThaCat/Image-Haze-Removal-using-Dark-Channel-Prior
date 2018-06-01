@@ -43,6 +43,11 @@ Guided filtering<br>
 -
 * Using "RMSE.m" and "main_score.m" to evaluate the performances (time consumption & RMSE score) of different parameter settings.
 
+2018/5/31
+-
+* Visualize the crude statistics in performance analyses as graph.
+* Write scripts and make PowerPoint for presentation.
+
 Relative Papers
 =
 * *Single Image Haze Removal Using Dark Channel Prior*, Kaiming He, Jian Sun, and Xiaoou Tang, Fellow, IEEE

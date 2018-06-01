@@ -2,7 +2,7 @@ function [darkchannel] = DarkChannel(I,height,width,patch_size)
 % calculate the dark channel of image I with size [height, width]
 darkchannel = zeros(height,width);
 %%%%%%%%%%%%%%%%%%%%%% verison 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% for index1 = ceil(patch_size/2):height-floor(patch_size/2)                  % ���ﲻ��ǽ�᲻�ᵼ�¾��Ȳ��ѣ�
+% for index1 = ceil(patch_size/2):height-floor(patch_size/2)                  
 %     for index2 = ceil(patch_size/2):width-floor(patch_size/2)
 %         patch_r = I((index1-ceil(patch_size/2)+1):(index1+floor(patch_size/2)), (index2-ceil(patch_size/2)+1):(index2+floor(patch_size/2)),1);
 %         patch_g = I((index1-ceil(patch_size/2)+1):(index1+floor(patch_size/2)), (index2-ceil(patch_size/2)+1):(index2+floor(patch_size/2)),2);
