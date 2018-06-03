@@ -13,9 +13,10 @@
 
 实验讲演相关：
 (SOLVED)1. 截图各个部分不同version的时间比较，做成柱状图
-2. 看Springer那篇review文章，提炼presentation应该讲什么
-3. 决定要不要引入transmission map和guided filter的数据
+(SOLVED)2. 看Springer那篇review文章，提炼presentation应该讲什么
+(SOLVED)3. 决定要不要引入transmission map和guided filter的数据
 4. 改变patch size的和atmospheric light的不同方法，截图最极端的最终transmission map图和dehaze结果图做比较。
+5. 加入不同方法的来源paper
 
 评判标准：
 1. 运行时间（分步+总运行时间）
