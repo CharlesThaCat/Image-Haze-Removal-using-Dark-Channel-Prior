@@ -8,7 +8,7 @@ figure;
 imshow(uint8(I)); title('original image');
 
 % patch size initialization
-patch_size = 15;
+patch_size = 3;
 
 % dark channel
 tic;
@@ -19,7 +19,9 @@ imshow(uint8(darkchannel)); title('dark channel');
 
 % atmospheric light A
 tic;
-[A] = AtmosphericLight(I,darkchannel,height,width);
+patch_size1 = 51;
+[darkchannel1] = DarkChannel(I,height,width,patch_size1);
+[A] = AtmosphericLight(I,darkchannel1,height,width);
 toc;
 
 % transmission t_tilde(x)
