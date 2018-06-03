@@ -17,6 +17,7 @@
 (SOLVED)3. 决定要不要引入transmission map和guided filter的数据
 4. 改变patch size的和atmospheric light的不同方法，截图最极端的最终transmission map图和dehaze结果图做比较。
 5. 加入不同方法的来源paper
+(SOLVED)6. 加入github page链接
 
 评判标准：
 1. 运行时间（分步+总运行时间）
