@@ -11,7 +11,7 @@ imshow(uint8(I)); title('figure(1): original image');
 patch_size = 7;     % dark channel patch size
 patch_size1 = 41;   % atmospheric light patch size
 omega = 0.93*255;   % omega in transmission map estimation
-epsilon = 10^-6;    % coefficients in guided filtering
+epsilon = 10^-3;    % coefficients in guided filtering
 r = 81;             % coefficients in guided filtering
 
 % dark channel
