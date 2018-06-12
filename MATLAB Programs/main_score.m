@@ -8,46 +8,53 @@ tic;
 i = 1;
 j = 1;
 sum = 0;
+% parameters' initialization
+patch_size = 7;     % dark channel patch size
+patch_size1 = 81;   % atmospheric light patch size
+omega = 0.93*255;   % omega in transmission map estimation
+epsilon = 10^-6;    % coefficients in guided filtering
+r = 81;             % coefficients in guided filtering
+frida_path = 'C:\\Users\\Charles Lin\\Documents\\Git--VSCode--GitHub\\Image Haze Removal using Dark Channel Prior\\frida';
+D_path = strcat(frida_path, '\\Dmap-%.6d.fdd');
+U_path = strcat(frida_path, '\\U080-%.6d.png');
+K_path = strcat(frida_path, '\\K080-%.6d.png');
+L_path = strcat(frida_path, '\\L080-%.6d.png');
+M_path = strcat(frida_path, '\\M080-%.6d.png');
+
 while (i<18)
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ground truth depth map %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    depthmapname = sprintf('C:\\Users\\Charles Lin\\Documents\\Git--VSCode--GitHub\\Image Haze Removal using Dark Channel Prior\\frida\\Dmap-%.6d.fdd',i);
+    depthmapname = sprintf(D_path,i);
     depthmap = double(load(depthmapname))/1000.0;
     depthmap_normalized = depthmap./max(depthmap(:));
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% uniform fog %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    imagename = sprintf('C:\\Users\\Charles Lin\\Documents\\Git--VSCode--GitHub\\Image Haze Removal using Dark Channel Prior\\frida\\U080-%.6d.png',i);
+    imagename = sprintf(U_path,i);
     I = imread(imagename);
     [height,width,~] = size(I);
-
-    % patch size initialization
-    patch_size = 7;
 
     % dark channel  
     [darkchannel] = DarkChannel(I,height,width,patch_size);
     
     % atmospheric light A
-    patch_size1 = 81;
     [darkchannel1] = DarkChannel(I,height,width,patch_size1);
     [A] = AtmosphericLight(I,darkchannel1,height,width);
     
     % transmission t_tilde(x)
-    omega = 0.95*255;
+
     [transmission] = Transmission(omega,darkchannel,A);
         
     % show the haze free image before soft matting
     transmission_normalized = transmission/255;
 
     % guided filter transmission refinement
-    epsilon = 10^-6;
-    r = 81; % radius of local window, determined interactively
     [filtered_transmission] = GuidedFilter(transmission_normalized,double(I)/255,r,epsilon);
     
     [rmse_score] = RMSE(depthmap_normalized,filtered_transmission);
     sum = sum + rmse_score;
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% heterogeneous fog %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    imagename = sprintf('C:\\Users\\Charles Lin\\Documents\\Git--VSCode--GitHub\\Image Haze Removal using Dark Channel Prior\\frida\\K080-%.6d.png',i);
+    imagename = sprintf(K_path,i);
     I = imread(imagename);
     [height,width,~] = size(I);
 
@@ -55,7 +62,6 @@ while (i<18)
     [darkchannel] = DarkChannel(I,height,width,patch_size);
     
     % atmospheric light A
-    patch_size1 = 31;
     [darkchannel1] = DarkChannel(I,height,width,patch_size1);
     [A] = AtmosphericLight(I,darkchannel1,height,width);
     
@@ -72,7 +78,7 @@ while (i<18)
     sum = sum + rmse_score;
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% cloudy fog %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    imagename = sprintf('C:\\Users\\Charles Lin\\Documents\\Git--VSCode--GitHub\\Image Haze Removal using Dark Channel Prior\\frida\\L080-%.6d.png',i);
+    imagename = sprintf(L_path,i);
     I = imread(imagename);
     [height,width,~] = size(I);
 
@@ -80,7 +86,6 @@ while (i<18)
     [darkchannel] = DarkChannel(I,height,width,patch_size);
     
     % atmospheric light A
-    patch_size1 = 31;
     [darkchannel1] = DarkChannel(I,height,width,patch_size1);
     [A] = AtmosphericLight(I,darkchannel1,height,width);
     
@@ -97,7 +102,8 @@ while (i<18)
     sum = sum + rmse_score;
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% cloudy heterogeneous fog %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    imagename = sprintf('C:\\Users\\Charles Lin\\Documents\\Git--VSCode--GitHub\\Image Haze Removal using Dark Channel Prior\\frida\\M080-%.6d.png',i);
+    %imagename = sprintf('C:\\Users\\Charles Lin\\Documents\\Git--VSCode--GitHub\\Image Haze Removal using Dark Channel Prior\\frida\\M080-%.6d.png',i);
+    imagename = sprintf(M_path,i);
     I = imread(imagename);
     [height,width,~] = size(I);
 
@@ -105,7 +111,6 @@ while (i<18)
     [darkchannel] = DarkChannel(I,height,width,patch_size);
     
     % atmospheric light A
-    patch_size1 = 31;
     [darkchannel1] = DarkChannel(I,height,width,patch_size1);
     [A] = AtmosphericLight(I,darkchannel1,height,width);
     
@@ -125,3 +130,4 @@ while (i<18)
 end
 avg_rmse_score = sum./72;
 toc;
+avg_rmse_score
