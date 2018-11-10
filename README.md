@@ -60,3 +60,9 @@ Other Supporting Materials
 * FRIDA (Foggy Road Image DAtabase)
 * *An Adventure of Sorts–Behind the Scenes of a MATLAB Upgrade*, Bill McKeeman, MathWorks and Loren Shure, MathWorks
 * About the image data type in MATLAB and their conversions: http://www.cnblogs.com/Allen-rg/p/6236009.html (website in Chinese)
+
+Result Demonstration
+=
+![Result 1](https://github.com/CharlesThaCat/Image-Haze-Removal-using-Dark-Channel-Prior/blob/master/result1.jpg)<br>
+![Result 2](https://github.com/CharlesThaCat/Image-Haze-Removal-using-Dark-Channel-Prior/blob/master/result2.jpg)<br>
+![Result 3](https://github.com/CharlesThaCat/Image-Haze-Removal-using-Dark-Channel-Prior/blob/master/result3.jpg)<br>
